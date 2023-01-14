@@ -4,7 +4,7 @@
         "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
 <hibernate-configuration>
     <session-factory>
-        <property name="connection.url">jdbc:mysql://localhost:3306/biuroPodrozy?severTimezone=Europe/Warsaw&amp;createDatabaseIfNotExist=true</property>
+        <property name="connection.url">jdbc:mysql://localhost:3306/projektPraktycznyBiuroPodrozy?severTimezone=Europe/Warsaw&amp;createDatabaseIfNotExist=true</property>
         <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
         <property name="connection.username">root</property>
         <property name="connection.password">root</property>
@@ -13,10 +13,15 @@
         <!-- Hibernate Model To Data Definition Language       -->
         <!-- Czy chcesz, aby klasa Javova wygenerowała Ci automatycznie tabele w bazie danych?       -->
         <property name="hibernate.hbm2ddl.auto">update</property>
-<!--        create-drop-->
+        <!--        create-drop-->
 
-<!--        <mapping class="pl.sda.hibernate.model.Ocena"/>-->
-<!--        <mapping class="pl.sda.hibernate.model.Student"/>-->
+        <!--        <mapping class="pl.sda.hibernate.model.Ocena"/>-->
+        <mapping class="model.Atrakcja"/>
+        <mapping class="model.Hotel"/>
+        <mapping class="model.Klient"/>
+        <mapping class="model.Lokalizacja"/>
+        <mapping class="model.OfertaWakacyjna"/>
+        <mapping class="model.Wycieczka"/>
 
     </session-factory>
 </hibernate-configuration>
