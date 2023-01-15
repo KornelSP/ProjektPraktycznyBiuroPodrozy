@@ -20,5 +20,6 @@ public class Klient {
     private int wiek;
 
     @ManyToMany
+    @EqualsAndHashCode.Exclude
     private Set<OfertaWakacyjna> wykupioneOferty; //
 }

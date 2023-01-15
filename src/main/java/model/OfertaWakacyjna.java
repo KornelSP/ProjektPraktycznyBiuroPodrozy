@@ -30,8 +30,12 @@ public class OfertaWakacyjna {
     private int iloscWolnychMiejsc;
 
     @ManyToMany (mappedBy = "wykupioneOferty")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Klient> klienci; //
 
     @ManyToOne
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Wycieczka wycieczka;
 }

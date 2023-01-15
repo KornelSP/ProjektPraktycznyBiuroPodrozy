@@ -18,8 +18,12 @@ public class Lokalizacja {
     private String lokalizacja;
 
     @OneToMany (mappedBy = "lokalizacja")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set<Atrakcja> atrakcje;
 
     @OneToMany (mappedBy = "lokalizacja")
+    @ToString.Exclude
+    @EqualsAndHashCode.Exclude
     private Set <Hotel> hotele;
 }
