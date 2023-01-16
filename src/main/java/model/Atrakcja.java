@@ -2,9 +2,6 @@ package model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -21,12 +18,6 @@ public class Atrakcja {
     private String opis;
 
     private int standard; //ilość gwiazdek
-
-    @CreationTimestamp
-    private LocalDateTime dataCzasStart;
-
-    @CreationTimestamp
-    private LocalDateTime dataCzasKoniec;
 
     @ManyToOne
     @EqualsAndHashCode.Exclude

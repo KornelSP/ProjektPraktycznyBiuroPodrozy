@@ -2,9 +2,6 @@ package model;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.hibernate.annotations.CreationTimestamp;
-
-import java.time.LocalDateTime;
 
 @Data
 @Entity
@@ -19,12 +16,6 @@ public class Hotel {
     private String nazwa;
 
     private String opis;
-
-    @CreationTimestamp
-    private LocalDateTime dataCzasStart;
-
-    @CreationTimestamp
-    private LocalDateTime dataCzasKoniec;
 
     @ManyToOne
     @EqualsAndHashCode.Exclude
