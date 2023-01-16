@@ -24,7 +24,7 @@ public class OfertaWakacyjna {
 
     private double cebaDorosly;
 
-    private int iloscWolnych;
+    private int iloscMiejsc;
 
     @ManyToMany (mappedBy = "wykupioneOferty")
     @ToString.Exclude
