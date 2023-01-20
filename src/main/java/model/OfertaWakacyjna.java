@@ -22,7 +22,7 @@ public class OfertaWakacyjna {
 
     private double cenaDziecko;
 
-    private double cebaDorosly;
+    private double cenaDorosly;
 
     private int iloscMiejsc;
 

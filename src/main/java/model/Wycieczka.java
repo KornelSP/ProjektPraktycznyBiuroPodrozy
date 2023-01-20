@@ -32,7 +32,7 @@ public class Wycieczka {
     @OneToMany (mappedBy = "wycieczka")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set <Hotel> Hotele;
+    private Set <Hotel> hotele;
 
 
 }
