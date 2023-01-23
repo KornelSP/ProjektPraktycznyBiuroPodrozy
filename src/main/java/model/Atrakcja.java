@@ -17,8 +17,6 @@ public class Atrakcja {
 
     private String opis;
 
-    private int standard; //ilość gwiazdek
-
     @ManyToOne
     @EqualsAndHashCode.Exclude
     private Wycieczka wycieczka;

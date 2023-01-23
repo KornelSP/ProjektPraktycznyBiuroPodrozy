@@ -1,12 +1,6 @@
 import komendy.IKomenda;
-import komendy.dodaj.KomendaDodajAtrakcja;
-import komendy.dodaj.KomendaDodajHotel;
-import komendy.dodaj.KomendaDodajKlient;
-import komendy.dodaj.KomendaDodajOfertaWakacyjna;
-import komendy.lista.KomendaListaAtrakcja;
-import komendy.lista.KomendaListaHotel;
-import komendy.lista.KomendaListaKlient;
-import komendy.lista.KomendaListaOfertaWakacyjna;
+import komendy.dodaj.*;
+import komendy.lista.*;
 import komendy.usun.KomendaUsunAtrakcja;
 import komendy.usun.KomendaUsunHotel;
 import komendy.usun.KomendaUsunKlient;
@@ -22,11 +16,14 @@ public class Main {
                 new KomendaDodajAtrakcja(),
                 new KomendaDodajHotel(),
                 new KomendaDodajKlient(),
+                new KomendaDodajLokalizacja(),
                 new KomendaDodajOfertaWakacyjna(),
                 new KomendaListaAtrakcja(),
                 new KomendaListaHotel(),
                 new KomendaListaKlient(),
+                new KomendaListaLokalizacja(),
                 new KomendaListaOfertaWakacyjna(),
+                new KomendaListaWycieczka(),
                 new KomendaUsunAtrakcja(),
                 new KomendaUsunHotel(),
                 new KomendaUsunKlient(),
@@ -41,7 +38,7 @@ public class Main {
             }
 
             System.out.println();
-            System.out.println("Aby zakonczyc prace programu wpisz \"exit\"");
+            System.out.println("* Aby zakonczyc prace programu wpisz \"exit\".");
 
             System.out.println("Podaj komende:");
             komenda = IKomenda.SCANNER.nextLine();

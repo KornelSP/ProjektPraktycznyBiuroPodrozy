@@ -54,7 +54,6 @@ public class DataAccessObject<T> {
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
-            // sprawdz czy istnieje - pobierz z bazy i sprawdz czy nie jest null
             T encja = session.get(tClass, id);
             if (encja == null) {
                 return false; // nie ma encji z takim id
@@ -62,19 +61,18 @@ public class DataAccessObject<T> {
 
             session.remove(encja);
             transaction.commit();
-            return true; // znalezlismy encje i ją usunelismy, zrobilismy commit.
+            return true;
         } catch (Exception ioe) {
             System.err.println("Błąd bazy: " + ioe);
         }
 
-        return false; // wystąpił błąd, nie usunelismy rekordu
+        return false;
     }
 
     public void update(Class<T> tClass, Long id, T encjaAktualizujaca) {
         try (Session session = HibernateUtil.INSTANCE.getSessionFactory().openSession()) {
             Transaction transaction = session.beginTransaction();
 
-            // kolejne linie weryfikują to że rekord istnieje i że będziemy mogli go aktualizować w jednej transakcji
             T encja = session.get(tClass, id);
             if (encja == null) {
                 System.err.println("Nie znaleziono rekordu!");
