@@ -22,7 +22,7 @@ public class Atrakcja {
     private Wycieczka wycieczka;
 
     @ManyToOne
+    @ToString.Exclude
     @EqualsAndHashCode.Exclude
     private Lokalizacja lokalizacja;
-
 }

@@ -3,7 +3,6 @@ package model;
 import jakarta.persistence.*;
 import lombok.*;
 
-import java.time.LocalDateTime;
 import java.util.Set;
 
 @Data
@@ -16,9 +15,9 @@ public class OfertaWakacyjna {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime dataCzasStart;
+//    private LocalDateTime dataCzasStart;
 
-    private LocalDateTime dataCzasKoniec;
+//    private LocalDateTime dataCzasKoniec;
 
     private double cenaDziecko;
 

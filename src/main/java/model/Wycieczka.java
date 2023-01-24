@@ -19,20 +19,18 @@ public class Wycieczka {
 
     private String opis;
 
-    @OneToMany (mappedBy = "wycieczka")
+    @OneToMany(mappedBy = "wycieczka")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set <OfertaWakacyjna> oferty;
+    private Set<OfertaWakacyjna> oferty;
 
-    @OneToMany (mappedBy = "wycieczka")
+    @OneToMany(mappedBy = "wycieczka")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set <Atrakcja> atrakcja;
+    private Set<Atrakcja> atrakcje;
 
-    @OneToMany (mappedBy = "wycieczka")
+    @OneToMany(mappedBy = "wycieczka")
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
-    private Set <Hotel> hotele;
-
-
+    private Set<Hotel> hotele;
 }

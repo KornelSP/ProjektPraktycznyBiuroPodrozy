@@ -4,6 +4,7 @@ import database.DataAccessObject;
 import komendy.IKomenda;
 import model.Hotel;
 import model.Lokalizacja;
+import model.Wycieczka;
 
 import java.util.Optional;
 
@@ -12,6 +13,7 @@ public class KomendaDodajHotel implements IKomenda {
     private DataAccessObject<Hotel> dao = new DataAccessObject<>();
 
     private DataAccessObject<Lokalizacja> daoLokaliacja = new DataAccessObject<>();
+    private DataAccessObject<Wycieczka> daoWycieczka = new DataAccessObject<>();
 
     @Override
     public String getKomenda() {
@@ -23,19 +25,36 @@ public class KomendaDodajHotel implements IKomenda {
         System.out.println("Podaj id lokalizacji z dostepnych ponizej:");
         daoLokaliacja.findAll(Lokalizacja.class).forEach(System.out::println);
 
-        boolean flag;
         Optional<Lokalizacja> lokalizacjaOptional;
+        String idLokalizacjiString;
         do {
-            String idLokalizacjiString = IKomenda.SCANNER.nextLine();
+            idLokalizacjiString = IKomenda.SCANNER.nextLine();
             Long idLokalizacji = Long.parseLong(idLokalizacjiString);
             lokalizacjaOptional = daoLokaliacja.find(Lokalizacja.class, idLokalizacji);
             if (lokalizacjaOptional.isEmpty()) {
                 System.err.println("Lokalizacja o podanym id nie istnieje, podaj poprawne id:");
-                flag = true;
+
             } else {
-                flag = false;
+                System.out.println("Lokalizacja dodana.");
             }
-        }while (flag);
+        } while (lokalizacjaOptional.isEmpty());
+
+        System.out.println("Podaj id wycieczki z dostepnych ponizej:");
+        daoWycieczka.findAll(Wycieczka.class).forEach(System.out::println);
+
+        Optional<Wycieczka> wycieczkaOptional;
+        String idWycieczkiString;
+        do {
+            idWycieczkiString = IKomenda.SCANNER.nextLine();
+            Long idWycieczki = Long.parseLong(idWycieczkiString);
+
+            wycieczkaOptional = daoWycieczka.find(Wycieczka.class, idWycieczki);
+            if (wycieczkaOptional.isEmpty()) {
+                System.err.println("Wycieczka o podanym id nie istnieje, podaj poprawne id:");
+            } else {
+                System.out.println("Wycieczka zostala dodana.");
+            }
+        } while (wycieczkaOptional.isEmpty());
 
         System.out.println("Podaj nazwe hotelu:");
         String nazwa = IKomenda.SCANNER.nextLine();
@@ -51,6 +70,7 @@ public class KomendaDodajHotel implements IKomenda {
 
         Hotel hotel = Hotel.builder()
                 .lokalizacja(lokalizacjaOptional.get())
+                .wycieczka(wycieczkaOptional.get())
                 .nazwa(nazwa)
                 .opis(opis)
                 .standard(gwiazdki)
